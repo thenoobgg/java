@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class ChessGame {
+    public static void main(String[] args) {
+        // iniciamos la tabla de ajedrez
+        String[][] board = {
+            {"r", "n", "b", "q", "k", "b", "n", "r"},
+            {"p", "p", "p", "p", "p", "p", "p", "p"},
+            {" ", " ", " ", " ", " ", " ", " ", " "},
+            {" ", " ", " ", " ", " ", " ", " ", " "},
+            {" ", " ", " ", " ", " ", " ", " ", " "},
+            {" ", " ", " ", " ", " ", " ", " ", " "},
+            {"P", "P", "P", "P", "P", "P", "P", "P"},
+            {"R", "N", "B", "Q", "K", "B", "N", "R"}
+        };
+        
+        Scanner input = new Scanner(System.in);
+        String move = "";
+        
+        while (!move.equals("salir")) {
+            // imprime la tabla de ajedrez
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(board[i][j] + " ");
+                }
+                System.out.println();
+            }
+            
+            // solicitamos un movimiento al jugador
+            System.out.print("ingrese su movimiento (e.g. a2-a3): ");
+            move = input.nextLine();
+            
+            // parse analiza el movimiento del jugador
+            int fromRow = Integer.parseInt(move.substring(1, 2)) - 1;
+            int fromCol = move.charAt(0) - 'a';
+            int toRow = Integer.parseInt(move.substring(4, 5)) - 1;
+            int toCol = move.charAt(3) - 'a';
+            
+            // mueve la pieza
+            board[toRow][toCol] = board[fromRow][fromCol];
+            board[fromRow][fromCol] = " ";
+        }
+        
+        input.close();
+    }
+}
