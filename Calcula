@@ -1,0 +1,36 @@
+# Definir usuario y contraseña
+usuario = "usuario"
+contraseña = "contraseña"
+
+# Pedir al usuario que ingrese su nombre de usuario y contraseña
+nombre_usuario = input("Ingrese su nombre de usuario: ")
+clave = input("Ingrese su contraseña: ")
+
+# Verificar si el usuario y contraseña son correctos
+if nombre_usuario == usuario and clave == contraseña:
+    print("Bienvenido", nombre_usuario)
+else:
+    print("Usuario o contraseña incorrectos")
+    exit()
+
+# Pedir al usuario que ingrese dos valores numéricos
+num1 = float(input("Ingrese el primer número: "))
+num2 = float(input("Ingrese el segundo número: "))
+
+# Pedir al usuario que elija una operación
+operacion = input("Ingrese la operación que desea realizar (+, -, *, /): ")
+
+# Realizar la operación correspondiente y mostrar el resultado
+if operacion == "+":
+    resultado = num1 + num2
+elif operacion == "-":
+    resultado = num1 - num2
+elif operacion == "*":
+    resultado = num1 * num2
+elif operacion == "/":
+    resultado = num1 / num2
+else:
+    print("Operación no válida")
+    exit()
+
+print("El resultado es:", resultado)
